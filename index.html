@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Cek Durasi Download</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="speedpmeter.icon" href="speedometer.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+<body>
+<div class="card">
+  <h1>Kalkulator Durasi Download</h1>
+  <p class="sub">Estimasi waktu download berdasarkan ukuran file & kecepatan internet</p>
+  <div id="clock">00:00:00</div>
+  <label for="fileSize">Ukuran File</label>
+  <div class="row">
+    <div class="field">
+      <input type="number" id="fileSize" placeholder="Contoh: 1500" min="0" step="any">
+    </div>
+    <div class="field" style="max-width: 110px;">
+      <select id="fileUnit">
+        <option value="MB" selected>MB</option>
+        <option value="GB">GB</option>
+        <option value="KB">KB</option>
+      </select>
+    </div>
+  </div>
+
+  <label for="speed">Kecepatan Internet</label>
+  <div class="row">
+    <div class="field">
+      <input type="number" id="speed" placeholder="Contoh: 20" min="0" step="any">
+    </div>
+    <div class="field" style="max-width: 110px;">
+      <select id="speedUnit">
+        <option value="Mbps" selected>Mbps</option>
+        <option value="MBps">MB/s</option>
+        <option value="Kbps">Kbps</option>
+      </select>
+    </div>
+  </div>
+
+  <label for="efficiency">Efisiensi Koneksi (%)</label>
+  <input type="number" id="efficiency" value="80" min="1" max="100" step="1">
+
+  <button onclick="hitungDurasi()">Hitung Durasi Download</button>
+
+  <div class="result" id="result">
+    <div class="time" id="timeResult">-</div>
+    <div class="detail" id="detailResult"></div>
+  </div>
+</div>
+<script src="script.js"></script>    
+</body>
+</html>
