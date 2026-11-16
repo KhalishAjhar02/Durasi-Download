@@ -3,7 +3,7 @@
 * { box-sizing: border-box; }
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-image: url('wallpaper.png');
+    background-image: url('wallpaper.webp');
     color: #f1f5f9;
     display: flex;
     justify-content: center;
