@@ -81,7 +81,7 @@ function hitungDurasi() {
 
   timeResult.style.color = '#4ade80';
   timeResult.textContent = displayTime;
-  finishResult.textContent = `Selesai pukul ${formatJam(selesai)}${catatanHari}`;
+  finishResult.textContent = `===> Selesai pukul = ${formatJam(selesai)}${catatanHari} <===`;
   detailResult.textContent = `Mulai ${formatJam(mulai)}`;
   resultBox.classList.add('show');
 }
