@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
-* { box-sizing: border-box; }
+  * { box-sizing: border-box; }
+
+  html {
+    color-scheme: dark; /* seragamkan tema bawaan browser (scrollbar, popup option) */
+  }
+
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background-image: url('wallpaper.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #0f172a;
     color: #f1f5f9;
     display: flex;
     justify-content: center;
@@ -45,19 +54,61 @@
     gap: 10px;
     margin-bottom: 16px;
   }
+
+  /* ===== Input & Select: tampilan seragam antar browser ===== */
+  input, select, button {
+    font-family: inherit;   /* form control tidak otomatis mewarisi font */
+    line-height: 1.4;
+  }
+
   input, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
     width: 100%;
-    padding: 10px 12px;
+    height: 42px;
+    padding: 0 12px;
     border-radius: 8px;
     border: 1px solid #334155;
-    background: #0f172a;
+    background-color: #0f172a;
     color: #f1f5f9;
     font-size: 14px;
+    margin: 0;
   }
+
+  /* Hilangkan spinner bawaan input number (beda di tiap browser) */
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Panah dropdown buatan sendiri */
+  select {
+    padding-right: 36px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 14px 14px;
+  }
+
+  select option {
+    background-color: #0f172a;
+    color: #f1f5f9;
+  }
+
   input:focus, select:focus {
     outline: none;
     border-color: #38bdf8;
   }
+  /* ========================================================= */
+
   .field { flex: 1; }
   button {
     width: 100%;
@@ -71,6 +122,8 @@
     font-size: 15px;
     cursor: pointer;
     transition: background 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
   }
   button:hover { background: #0ea5e9; }
   .result {
@@ -100,8 +153,14 @@
     line-height: 1.5;
   }
   #clock {
-  font-size: 25px;
-  color: white;
-  font-family: Roboto Mono, sans-serif;
-  text-align: center;
-}
+    font-size: 25px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+  }
+  .result .finish {
+    font-size: 15px;
+    font-weight: 600;
+    color: #38bdf8;
+    margin-bottom: 6px;
+  }
